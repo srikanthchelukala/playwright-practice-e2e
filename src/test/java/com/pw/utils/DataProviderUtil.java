@@ -48,7 +48,7 @@ public final class DataProviderUtil {
 
     @DataProvider(name = "checkoutData")
     public static Object[][] checkoutData() throws IOException {
-        return getjsonDataToMap("/testdata/checkout_testdata.json");
+        return getjsonDataToMap("/src/test/resources/testdata/checkout_testdata.json");
     }
 
    

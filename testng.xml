@@ -7,14 +7,14 @@
 </run>
 </groups>
 <classes>
-<class name="tests.AutomationFundamentals"/>
-<class name="tests.DataDrivenLoginTest"/>
+<class name="com.pw.tests.AutomationFundamentals"/>
+<class name="com.pw.tests.DataDrivenLoginTest"/>
 </classes>
 </test>
 
 <test name="SmokeTest">
 <classes>
-<class name="tests.AutomationFundamentals"/>
+<class name="com.pw.tests.AutomationFundamentals"/>
 </classes>
 </test>
 </suite>

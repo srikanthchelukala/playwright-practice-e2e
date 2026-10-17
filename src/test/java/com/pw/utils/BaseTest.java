@@ -56,9 +56,9 @@ public abstract class BaseTest{
         prop.load(fis);
         // String browserName=prop.getProperty("browser");
         //mvn test -PRegression -Dbrowser=chrome
-        String browserName=prop.getProperty("browser")!=null ? prop.getProperty("browser") :prop.getProperty("browser");
+        String browserName=System.getProperty("browser")!=null ? System.getProperty("browser") :prop.getProperty("browser");
                 ///if condition exec then after ? mark consition will run and if no then : condition will run
-        String envName=prop.getProperty("env")!=null ?System.getProperty("env") : prop.getProperty("env");
+        String envName=System.getProperty("env")!=null ?System.getProperty("env") : prop.getProperty("env");
         playwright = Playwright.create();
         playwright.selectors().setTestIdAttribute("data-test");
         if(browserName.equalsIgnoreCase("firefox")) {
@@ -69,6 +69,9 @@ public abstract class BaseTest{
             browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
         }
         sauceUrl=prop.getProperty(envName+"."+"sauceUrl");
+        System.out.println("Browser : " + browserName);
+        System.out.println("Environment : " + envName);
+        System.out.println("URL : " + sauceUrl);
         context = browser.newContext();
         context.tracing().start(new Tracing.StartOptions()
             .setScreenshots(true)
