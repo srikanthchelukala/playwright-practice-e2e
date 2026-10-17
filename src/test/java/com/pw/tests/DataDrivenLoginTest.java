@@ -35,7 +35,7 @@ public class DataDrivenLoginTest extends BaseTest {
         }
     }
 
-   @Test(groups={"smoke"},dataProvider = "userlogin", dataProviderClass = DataProviderUtil.class,description = "Validate login behavior with dataset")
+   @Test(dataProvider = "userlogin", dataProviderClass = DataProviderUtil.class,description = "Validate login behavior with dataset")
     public void verifyLoginWithMultipleData(Map<String, String> testData) {
         assertThat(page).hasTitle("Swag Labs");
         loginPage.login(testData.get("username"), testData.get("password"));

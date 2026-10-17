@@ -9,7 +9,7 @@ on:
       browser:
         description: 'Browser to run tests on'
         required: true
-        default: 'chrome'
+        default: 'firefox'
         type: choice
         options:
           - chrome
