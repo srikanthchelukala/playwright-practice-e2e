@@ -59,14 +59,16 @@ public abstract class BaseTest{
         String browserName=System.getProperty("browser")!=null ? System.getProperty("browser") :prop.getProperty("browser");
                 ///if condition exec then after ? mark consition will run and if no then : condition will run
         String envName=System.getProperty("env")!=null ?System.getProperty("env") : prop.getProperty("env");
+        boolean headless = Boolean.parseBoolean(System.getProperty("headless") != null ? System.getProperty("headless") : prop.getProperty("headless"));
         playwright = Playwright.create();
         playwright.selectors().setTestIdAttribute("data-test");
         if(browserName.equalsIgnoreCase("firefox")) {
-            browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            // browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+              browser = playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(headless));
         } else if(browserName.equalsIgnoreCase("chrome")) {
-            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(headless));
         } else if(browserName.equalsIgnoreCase("webkit")) {
-            browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(false));
+            browser = playwright.webkit().launch(new BrowserType.LaunchOptions().setHeadless(headless));
         }
         sauceUrl=prop.getProperty(envName+"."+"sauceUrl");
         System.out.println("Browser : " + browserName);
