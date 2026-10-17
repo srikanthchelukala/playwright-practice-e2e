@@ -17,7 +17,7 @@ public class DataDrivenLoginTest extends BaseTest {
 
 
     
-    @Test(dataProvider = "loginTestDataExpErrMsg", dataProviderClass = DataProviderUtil.class,   description = "Validate login behavior with external JSON data")
+    @Test(groups = "regression",dataProvider = "loginTestDataExpErrMsg", dataProviderClass = DataProviderUtil.class,   description = "Validate login behavior with external JSON data")
     public void verifyLogin(HashMap<String,String> data) {
         //  LoginPage loginPage = new LoginPage(page,sauceUrl);
         //  loginPage.open();

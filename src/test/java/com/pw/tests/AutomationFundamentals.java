@@ -16,7 +16,7 @@ import com.pw.utils.DataProviderUtil;
 
 public class AutomationFundamentals extends BaseTest {
     
-    @Test(dataProvider = "checkoutData", dataProviderClass = DataProviderUtil.class,description = "Verify successful login")
+    @Test(groups = "regression",dataProvider = "checkoutData", dataProviderClass = DataProviderUtil.class,description = "Verify successful login")
     public void verifySuccessfulLogin(HashMap<String, String> checkoutData) {
         // assertThat(page).hasTitle("Swag Labs");
         // InventoryPage inventoryPage = loginPage.login("standard_user", "secret_sauce");
