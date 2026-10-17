@@ -1,0 +1,20 @@
+<suite name="TestSuite" >
+<!-- <suite name="TestSuite" verbose="1"parallel="classes" thread-count="3"> -->
+<test name="Regressiontest">
+<groups>
+<run>
+<include name="smoke"/>
+</run>
+</groups>
+<classes>
+<class name="tests.AutomationFundamentals"/>
+<class name="tests.DataDrivenLoginTest"/>
+</classes>
+</test>
+
+<test name="SmokeTest">
+<classes>
+<class name="tests.AutomationFundamentals"/>
+</classes>
+</test>
+</suite>
