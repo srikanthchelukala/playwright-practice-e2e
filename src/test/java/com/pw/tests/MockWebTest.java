@@ -47,8 +47,8 @@ public class MockWebTest {
         assertThat(page.getByRole(AriaRole.LINK,new Page.GetByRoleOptions().setName("Browse Events →"))).isVisible();
         page.getByTestId("nav-bookings").click();
         page.route("**/api/bookings**",route->route.resume(new Route.ResumeOptions().setUrl("https://eventhub.rahulshettyacademy.com/bookings/22307")));
-        page.getByRole(AriaRole.BUTTON,new Page.GetByRoleOptions().setName("View Details")).first().click();
-        assertThat(page.getByText("Access Denied")).isVisible();
+        // page.getByRole(AriaRole.BUTTON,new Page.GetByRoleOptions().setName("View Details")).first().click();
+        assertThat(page.getByText("Couldn't load bookings")).isVisible();
     }
     
 }

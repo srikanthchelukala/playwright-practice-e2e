@@ -18,6 +18,9 @@ public class AutomationFundamentals extends BaseTest {
     
     @Test(dataProvider = "checkoutData", dataProviderClass = DataProviderUtil.class,description = "Verify successful login")
     public void verifySuccessfulLogin(HashMap<String, String> checkoutData) {
+         LoginPage loginPage = new LoginPage(page,sauceUrl);  ///comment this line if enable this in basetest
+         loginPage.open();  ///comment this line if enable this in basetest
+         
         // assertThat(page).hasTitle("Swag Labs");
         // InventoryPage inventoryPage = loginPage.login("standard_user", "secret_sauce");
         // LoginPage loginPage = new LoginPage(page,sauceUrl);
