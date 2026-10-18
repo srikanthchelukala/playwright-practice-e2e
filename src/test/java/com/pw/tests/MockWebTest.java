@@ -26,7 +26,7 @@ public class MockWebTest {
         page.getByRole(AriaRole.BUTTON,new Page.GetByRoleOptions().setName("Sign In")).click();
         assertThat(page.getByRole(AriaRole.LINK,new Page.GetByRoleOptions().setName("Browse Events →"))).isVisible();
         // page.getByTestId("nav-bookings").click();
-        page.route("**/api/events**",route -> route.fulfill(new Route.FulfillOptions().setPath(Paths.get("src\\test\\resources\\testdata\\events_4.json"))));
+        page.route("**/api/events**",route -> route.fulfill(new Route.FulfillOptions().setPath(Paths.get("/src/test/resources/testdata/events_4.json"))));
         page.navigate("https://eventhub.rahulshettyacademy.com/events");
         page.waitForTimeout(7000);
         Locator eventCards=page.getByTestId("event-card");
