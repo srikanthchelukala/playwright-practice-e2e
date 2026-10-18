@@ -210,8 +210,22 @@
         <artifactId>allure-maven</artifactId>
         <version>2.15.2</version>
         <configuration>
-          <reportVersion>${allure.commandline.version}</reportVersion>
-          <resultsDirectory>${project.build.directory}/reports/allure-results</resultsDirectory>
+        <!-- Existing raw Allure results -->
+        <resultsDirectory>
+            ${project.build.directory}/reports/allure-results
+        </resultsDirectory>
+
+        <!-- Separate folder for HTML report -->
+        <reportDirectory>
+            ${project.build.directory}/single-html-report
+        </reportDirectory>
+
+        <!-- Generate self-contained HTML -->
+        <singleFile>true</singleFile>
+
+        <!-- Optional: don't carry previous report history -->
+        <historyEnabled>false</historyEnabled>
+
         </configuration>
       </plugin>
     </plugins>

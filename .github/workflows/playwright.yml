@@ -39,5 +39,36 @@ jobs:
     - name: Ensure browsers are installed
       run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
     - name: Run tests
-      run: mvn test -PRegression -Dbrowser=${{ github.event.inputs.browser }} -Denvironment=${{ github.event.inputs.environment }}  -Dheadless=true
+      run: mvn clean test -PRegression -Dbrowser=${{ inputs.browser || 'firefox' }} -Denv=${{ inputs.environment || 'qa' }}  -Dheadless=true
       # run: mvn test -PFramework -Dbrowser=${{ github.event.inputs.browser }} -Denv=${{ github.event.inputs.environment }} -Dheadless=${{ github.event.inputs.headless }}
+    - name: Generate Allure HTML Report
+      if: always()
+      run: mvn allure:report
+    - name: Upload Allure HTML Report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+          name: allure-html-report
+          path: target/single-html-report/
+          if-no-files-found: warn
+    - name: Upload Failure Screenshots
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+          name: failure-screenshots
+          path: target/reports/screenshots/
+          if-no-files-found: ignore
+    - name: Upload Playwright Traces
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+          name: playwright-traces
+          path: target/reports/traces/
+          if-no-files-found: ignore
+    - name: Upload Surefire Results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+          name: surefire-results
+          path: target/surefire-reports/
+          if-no-files-found: ignore
