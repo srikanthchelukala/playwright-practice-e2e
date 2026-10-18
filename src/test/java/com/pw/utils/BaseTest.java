@@ -80,8 +80,8 @@ public abstract class BaseTest{
             .setSnapshots(true)
             .setSources(true));
         page = context.newPage();
-        // loginPage = new LoginPage(page, sauceUrl);  ---For BasTest
-        // loginPage.open();   --For BaseTes
+        loginPage = new LoginPage(page, sauceUrl);  //---For BasTest
+        loginPage.open();   //---For BaseTest
         // LoginPage loginPage = new LoginPage(page,sauceUrl);
         //  loginPage.open();
     }

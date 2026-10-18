@@ -19,8 +19,6 @@ public class DataDrivenLoginTest extends BaseTest {
     
     @Test(groups = "regression",dataProvider = "loginTestDataExpErrMsg", dataProviderClass = DataProviderUtil.class,   description = "Validate login behavior with external JSON data")
     public void verifyLogin(HashMap<String,String> data) {
-         LoginPage loginPage = new LoginPage(page,sauceUrl);  ///comment this line if enable this in basetest
-         loginPage.open();  ///comment this line if enable this in basetest
         assertThat(page).hasTitle("Swag Labs");
          InventoryPage inventoryPage=loginPage.login(data.get("username"), data.get("password"));
         if (data.get("expectedError").isEmpty()) {
@@ -37,8 +35,6 @@ public class DataDrivenLoginTest extends BaseTest {
 
    @Test(groups = "regression",dataProvider = "userlogin", dataProviderClass = DataProviderUtil.class,description = "Validate login behavior with dataset")
     public void verifyLoginWithMultipleData(Map<String, String> testData) {
-         LoginPage loginPage = new LoginPage(page,sauceUrl);  ///comment this line if enable this in basetest
-         loginPage.open();  ///comment this line if enable this in basetest
         assertThat(page).hasTitle("Swag Labs");
         loginPage.login(testData.get("username"), testData.get("password"));
     }

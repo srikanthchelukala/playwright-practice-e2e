@@ -18,7 +18,7 @@ public class MockWebTest {
     @Test(description="Verify that the event cards are correctly displayed when the API is mocked")
     public void  routeFulfillTest(){
         Playwright playwright=Playwright.create();
-        Browser browser=playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        Browser browser=playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(true));
         Page page=browser.newPage();
         page.navigate("https://eventhub.rahulshettyacademy.com/login");
         page.getByLabel("Email").fill("reddy.csri@gmail.com");
@@ -38,7 +38,7 @@ public class MockWebTest {
     @Test(description="Verify that access is denied when trying to view booking details without proper authorization")
     public void routeResumeTest(){
         Playwright playwright=Playwright.create();
-        Browser browser=playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        Browser browser=playwright.firefox().launch(new BrowserType.LaunchOptions().setHeadless(true));
         Page page=browser.newPage();
         page.navigate("https://eventhub.rahulshettyacademy.com/login");
         page.getByLabel("Email").fill("reddy.csri@gmail.com");
